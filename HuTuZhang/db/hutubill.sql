@@ -1,0 +1,25 @@
+CREATE DATABASE hutubill;
+USE hutubill;
+CREATE TABLE config(
+  id INT AUTO_INCREMENT,
+  key_ VARCHAR(255),
+  VALUE VARCHAR(255),
+  PRIMARY KEY(id)
+) DEFAULT CHARSET = utf8;
+
+CREATE TABLE category(
+  id INT  AUTO_INCREMENT,
+  NAME VARCHAR(255),
+  PRIMARY KEY(id)
+) DEFAULT CHARSET = utf8;
+
+
+CREATE TABLE record (
+  id INT AUTO_INCREMENT,
+  spend INT,
+  cid INT,
+  COMMENT VARCHAR(255) ,
+  DATE DATE,
+  PRIMARY KEY (id),
+   CONSTRAINT `fk_record_category` FOREIGN KEY (`cid`) REFERENCES `category` (`id`)
+)  DEFAULT CHARSET=utf8;
